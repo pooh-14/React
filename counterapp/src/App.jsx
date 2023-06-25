@@ -6,6 +6,8 @@ import Footer from './Components/Footer';
 import {Route,Routes} from 'react-router-dom'
 import Welcome from './Components/Welcome';
 import Login from './Components/Login';
+import Counter from './Components/Counter';
+import Section from './Components/Section';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route exact path='/' element={ <Home />} />
       <Route exact path='/wel' element={ <Welcome/>} />
       <Route exact path='/log' element={ <Login/>} />
+      <Route exact path='/count' element={<Counter/>}/>
+      <Route exact path='/sec' element={<Section/>}/>
       </Routes>
       <Footer/>
    </div>
