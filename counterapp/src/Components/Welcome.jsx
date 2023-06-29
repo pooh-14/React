@@ -4,10 +4,10 @@ function Welcome(){
     const[shivani , setcount ] = useState("Pooja");
     console.log(shivani)
     return(
-        <h3 style={{color:"green"}}>
-            Welcome
-            <button onClick={()=>setcount("Sakshi")}>Click to Change data</button>
-        </h3>
+        <div>
+        <h3 style={{color:"green"}}> Welcome </h3>
+        <button onClick={()=>setcount("Sakshi")}>Click to Change data</button>
+        </div>
     );
 }
 export default Welcome;

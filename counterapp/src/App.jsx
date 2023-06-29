@@ -10,6 +10,8 @@ import Counter from './Components/Counter';
 import Section from './Components/Section';
 import Type1UseEffect from './Components/Type1UseEffect';
 import Type2UseEffect from './Components/Type2UseEffect';
+import Type3UseEffect from './Components/Type3UseEffect';
+import Type4UseEffect from './Components/Type4UseEffect';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route exact path='/sec' element={<Section/>}/>
       <Route exact path='/Type1UseEffect' element={<Type1UseEffect/>}/>
       <Route exact path='/Type2UseEffect' element={<Type2UseEffect/>}/>
+      <Route exact path='/Type3UseEffect' element={<Type3UseEffect/>}/>
+      <Route exact path='/Type4UseEffect' element={<Type4UseEffect/>}/>
       </Routes>
       <Footer/>
    </div>
