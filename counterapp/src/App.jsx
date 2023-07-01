@@ -12,8 +12,19 @@ import Type1UseEffect from './Components/Type1UseEffect';
 import Type2UseEffect from './Components/Type2UseEffect';
 import Type3UseEffect from './Components/Type3UseEffect';
 import Type4UseEffect from './Components/Type4UseEffect';
+import Params from './Components/01-07/Params';
+import SingleProduct from './Components/01-07/SingleProduct';
+import Map from './Components/01-07/Map';
+import Wrapper from './Components/01-07/Wrapper';
+import DeclarativeWay from './Components/01-07/DeclarativeWay';
+import {useState } from "react";
+import StyledCompo from './Components/01-07/StyledCompo';
+
 
 function App() {
+
+  const [myUsers, setMyUsers] = useState(["Rahul", "Krishan", "Manoj"])
+
   return (
     <div>
       <Navbar/>
@@ -27,6 +38,12 @@ function App() {
       <Route exact path='/Type2UseEffect' element={<Type2UseEffect/>}/>
       <Route exact path='/Type3UseEffect' element={<Type3UseEffect/>}/>
       <Route exact path='/Type4UseEffect' element={<Type4UseEffect/>}/>
+      <Route exact path='/params' element={ <Params/>}/>
+      <Route exact path='/singleproduct/:swaraj' element={<SingleProduct />} />
+      <Route exact path='/map' element={ <Map myUsers={myUsers} setMyUsers={setMyUsers} myName={"Santosh"} kuchBhi={["rOCKY", "rAJ", "hOIHIBUI"]} />}/>
+      <Route exact path='/wrapper' element={ <Wrapper/>}/>
+      <Route exact path='/declarativeway' element={ <DeclarativeWay/>}/>
+      <Route exact path='/styledcompo' element={ <StyledCompo/>}/>
       </Routes>
       <Footer/>
    </div>
