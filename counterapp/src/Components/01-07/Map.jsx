@@ -1,17 +1,18 @@
 import React from 'react'
 
-const Map = (props) => {
-    console.log(props.myUsers, "HEREE")
+const Map = ({myUsers,kuchBhi, myName,setMyUsers}) => {
+    console.log(myUsers, "HEREE")
+    // console.log(typeof props)
     return (
         <div>
-            {props.kuchBhi && props?.kuchBhi.map((str) => (
+            {kuchBhi && kuchBhi.map((str) => (
                 <div key={str}>
                     <h2>{str}</h2>
                 </div>
             ))}
 
-            <button onClick={() => props?.setMyUsers([...props.myUsers, "Awdiz"])}>Add user</button>
-            {props.myName && props.myName}
+            <button onClick={() => setMyUsers([...myUsers, "Awdiz"])}>Add user</button>
+            {myName && myName}
 
         </div>
     )
