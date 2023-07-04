@@ -19,6 +19,9 @@ import Wrapper from './Components/01-07/Wrapper';
 import DeclarativeWay from './Components/01-07/DeclarativeWay';
 import {useState } from "react";
 import StyledCompo from './Components/01-07/StyledCompo';
+import DynamicStyles from './Components/04-07/DynamicStyles';
+import DynamicClasses from './Components/04-07/DynamicClasses';
+import ChildrenProp from './Components/04-07/ChildrenProp';
 
 
 function App() {
@@ -44,6 +47,9 @@ function App() {
       <Route exact path='/wrapper' element={ <Wrapper/>}/>
       <Route exact path='/declarativeway' element={ <DeclarativeWay/>}/>
       <Route exact path='/styledcompo' element={ <StyledCompo/>}/>
+      <Route exact path='/dynamicstyles' element={ <DynamicStyles />} />
+      <Route exact path='/dynamicclasses' element={ <DynamicClasses />} />
+      <Route exact path='/childrenprop' element={ <ChildrenProp />} />
       </Routes>
       <Footer/>
    </div>
