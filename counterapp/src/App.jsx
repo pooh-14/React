@@ -22,6 +22,7 @@ import StyledCompo from './Components/01-07/StyledCompo';
 import DynamicStyles from './Components/04-07/DynamicStyles';
 import DynamicClasses from './Components/04-07/DynamicClasses';
 import ChildrenProp from './Components/04-07/ChildrenProp';
+import FormOne from './Components/06-07/FormOne';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
       <Route exact path='/dynamicstyles' element={ <DynamicStyles />} />
       <Route exact path='/dynamicclasses' element={ <DynamicClasses />} />
       <Route exact path='/childrenprop' element={ <ChildrenProp />} />
+      <Route exact path='/formone' element={<FormOne/>}/>
       </Routes>
       <Footer/>
    </div>
