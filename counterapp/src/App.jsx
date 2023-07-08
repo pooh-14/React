@@ -23,7 +23,9 @@ import DynamicStyles from './Components/04-07/DynamicStyles';
 import DynamicClasses from './Components/04-07/DynamicClasses';
 import ChildrenProp from './Components/04-07/ChildrenProp';
 import FormOne from './Components/06-07/FormOne';
-import FormSingleState from './Components/08-07/FormSinglestate';
+import FormSingleState from './Components/08-07/FormSingleState';
+import Todos from './Components/08-07/Todos';
+import UseCallback from './Components/08-07/UseCallback';
 
 
 function App() {
@@ -53,7 +55,9 @@ function App() {
       <Route exact path='/dynamicclasses' element={ <DynamicClasses />} />
       <Route exact path='/childrenprop' element={ <ChildrenProp />} />
       <Route exact path='/formone' element={<FormOne/>}/>
-      <Route exact path='./formsinglestate' element={<FormSinglestate/>}/>
+      <Route exact path='/formsinglestate' element={<FormSingleState/>}/>
+      <Route exact path='/usecallback' element={<UseCallback/>}/>
+      <Route exact path='/todos' element={<Todos/>}/>
       </Routes>
       <Footer/>
    </div>
