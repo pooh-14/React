@@ -60,7 +60,6 @@ function submitData(event){
             <input onChange={toSetPassword} type='password' placeholder='Type your password'/><br/>
             <input type='submit' value='Register'/>
             </fieldset>
-            
         </form>
     </div>
   )

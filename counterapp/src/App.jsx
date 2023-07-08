@@ -23,6 +23,7 @@ import DynamicStyles from './Components/04-07/DynamicStyles';
 import DynamicClasses from './Components/04-07/DynamicClasses';
 import ChildrenProp from './Components/04-07/ChildrenProp';
 import FormOne from './Components/06-07/FormOne';
+import FormSingleState from './Components/08-07/FormSinglestate';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
       <Route exact path='/dynamicclasses' element={ <DynamicClasses />} />
       <Route exact path='/childrenprop' element={ <ChildrenProp />} />
       <Route exact path='/formone' element={<FormOne/>}/>
+      <Route exact path='./formsinglestate' element={<FormSinglestate/>}/>
       </Routes>
       <Footer/>
    </div>
