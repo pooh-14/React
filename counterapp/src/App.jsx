@@ -65,7 +65,7 @@ function App() {
       <Route exact path='/productsfrombackend' element={<ProductsFromBackend/>}/>
       <Route exact path='/usememo' element={<UseMemo/>}/>
       <Route exact path='/usereducer' element={<UseReducer/>}/>
-      <Route exact path='/products' element={<Products/>}/>
+      <Route exact path='/products/:id' element={<Products/>}/>
       </Routes>
       <Footer/>
    </div>
