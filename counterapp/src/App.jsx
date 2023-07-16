@@ -5,7 +5,6 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import {Route,Routes} from 'react-router-dom'
 import Welcome from './Components/Welcome';
-import Login from './Components/Login';
 import Counter from './Components/Counter';
 import Section from './Components/Section';
 import Type1UseEffect from './Components/Type1UseEffect';
@@ -30,11 +29,13 @@ import ProductsFromBackend from './Components/11-07/ProductsFromBackend';
 import UseMemo from './Components/09-07/UseMemo';
 import UseReducer from './Components/09-07/UseReducer';
 import Products from './Components/13-07/Products';
+import Register from './Components/15-07/Register';
+import Login from './Components/15-07/Login';
 
 
 function App() {
 
-  const [myUsers, setMyUsers] = useState(["Rahul", "Krishan", "Manoj"])
+  const [myUsers, setMyUsers] = useState(["Rahul", "Krishna", "Manoj"])
 
   return (
     <div>
@@ -66,6 +67,7 @@ function App() {
       <Route exact path='/usememo' element={<UseMemo/>}/>
       <Route exact path='/usereducer' element={<UseReducer/>}/>
       <Route exact path='/products/:id' element={<Products/>}/>
+      <Route exact path='/register' element={<Register/>}/>
       </Routes>
       <Footer/>
    </div>
