@@ -17,16 +17,20 @@ const Login = () => {
             var flag = false;
             for (var i = 0; i < users.length; i++) {
                 if (users[i].email == userData.email && users[i].password == userData.password) {
-                    flag = true; // re-assign
+                    flag = true; 
+                    break;
                 }
             }
 
             if (flag == false) {
                 return alert("Please check credentails.")
+            }else{
+                localStorage.setItem("Current-user", JSON.stringify(userData))
+                alert("Login successfull.");
+                setUserData({ email: "", password: "" })
+                router('/');
             }
-            alert("Login successfull.");
-            setUserData({ email: "", password: "" })
-            router('/');
+            
 
         } else {
             alert("Please fill all the details! ")

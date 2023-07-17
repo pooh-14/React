@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const[userData,setUserData] = useState({name:"", email:"", password:""});
+    
     const router = useNavigate();
 
     const handleChange = (event) => {
@@ -13,7 +14,12 @@ const Register = () => {
         event.preventDefault();
         if(userData.name && userData.email && userData.password){
             const array = JSON.parse(localStorage.getItem("Users")) || [];
-            const userDataObj = {name:userData.name , email:userData.email , password:userData.password};
+            const userDataObj = {
+                 name:userData.name ,
+                 email:userData.email ,
+                 password:userData.password,
+                 cart : []
+                };
             array.push(userDataObj);
             localStorage.setItem("Users", JSON.stringify(array));
             alert("Registeration Successfull..")
