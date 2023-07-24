@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Products = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -7,6 +7,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [single, setSingle] = useState({});
   const { id } = useParams();
+  const router = useNavigate();
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -40,28 +41,33 @@ const Products = () => {
           break;
         }
       }
+      alert("Product successfully added to cart!")
+            router('/productsfrombackend')
     } else {
       alert("You can't add a product before logging in!");
     }
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-evenly", width: "80%", margin: "auto" }}>
-      <div style={{ width: "35%", height: "500px", border: "5px solid yellowgreen " }}>
-        <img style={{ width: "100%", height: "100%" }} src={single.image} alt="Product" />
+    <div style={{ display: "flex", justifyContent: "space-evenly", width: "60%", margin: "auto" , marginTop:"50px",border:"1px solid black"}}>
+      <div style={{ width: "22%", height: "300px", }}>
+        <img style={{ width: "100%", height: "100%",marginTop:"40px", }} src={single.image} alt="Product" />
       </div>
-      <div style={{ width: "50%", height: "600px", border: "5px solid blue", padding: "15px" }}>
-        <h1>Name: {single.title}</h1>
+      <div style={{ width: "60%", height: "400px",  padding: "15px" }}>
+        <h2>Name: {single.title}</h2>
         <h2>Price: {single.price}$</h2>
-        <p style={{ fontSize: "20px" }}>Description: {single.description}</p>
+        <p style={{ fontSize: "17px" }}>Description: {single.description}</p>
         <button
           style={{
-            height: "40px",
-            width: "120px",
-            border: "1px solid magenta",
-            backgroundColor: "magenta",
+            height: "45px",
+            width: "150px",
+            border: "1px solid purple",
+            backgroundColor: "purple",
             color: "white",
-            marginLeft: "40%"
+            fontWeight:"700",
+            marginLeft: "30%",
+            fontSize: "17px",
+            borderRadius:"50px"
           }}
           onClick={addCart}
         >

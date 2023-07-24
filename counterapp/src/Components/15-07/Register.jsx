@@ -35,16 +35,17 @@ const Register = () => {
         
         <div style={{display:'flex', justifyContent:'center'}}>
         <form onSubmit={handleSubmit}>
-            <fieldset style={{width:"180px", textAlign: 'centre' }}>
-            <legend>Fill your Details</legend>
+            <fieldset style={{width:"380px",marginTop:"50px", textAlign: 'centre',backgroundImage: "linear-gradient(to bottom right, #8080ff, white)"}}>
+            {/* <legend>Fill your Details</legend> */}
             <label>Name:</label><br/>
-            <input  type='text' name='name' onChange={handleChange}/><br/>
+            <input style={{width:"380px",marginTop:"10px",height:"30px", marginBottom:"10px",textAlign: 'centre' }} type='text' name='name' onChange={handleChange}/><br/>
             <label>Email:</label><br/>
-            <input  type='email' name='email' onChange={handleChange}/><br/>
+            <input style={{width:"380px",marginTop:"10px",height:"30px", marginBottom:"10px",textAlign: 'centre' }} type='email' name='email' onChange={handleChange}/><br/>
             <label>Password:</label><br/>
-            <input type='password' name='password' onChange={handleChange}/><br/>
-            <input style={{marginLeft:"45px", marginTop:"15px", backgroundColor:"orange",
-             border:"1px solid orange", color:"white",padding:"3px 15px", borderRadius:"20px"}} type='submit' value='Register'/>
+            <input style={{width:"380px",marginTop:"10px",height:"30px", marginBottom:"10px",textAlign: 'centre' }}type='password' name='password' onChange={handleChange}/><br/>
+            <input style={{marginLeft:"130px", marginTop:"15px", backgroundColor:"#ff471a",fontWeight:"700",
+             border:"2px solid #ff3300", color:"white",padding:"8px 35px", borderRadius:"20px"}}type='submit' value='Register'/>
+             <p style={{marginLeft:"80px",color:"blue"}} onClick={()=>router('/log')} ><u>Already have an account?Login</u></p>
             </fieldset>
         </form>
     </div>

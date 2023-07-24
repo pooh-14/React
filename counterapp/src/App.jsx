@@ -31,6 +31,8 @@ import UseReducer from './Components/09-07/UseReducer';
 import Products from './Components/13-07/Products';
 import Register from './Components/15-07/Register';
 import Login from './Components/15-07/Login';
+import Cart from './Components/18-07/Cart';
+import Profile from './Components/22-07/Profile';
 
 
 function App() {
@@ -68,8 +70,10 @@ function App() {
       <Route exact path='/usereducer' element={<UseReducer/>}/>
       <Route exact path='/products/:id' element={<Products/>}/>
       <Route exact path='/register' element={<Register/>}/>
+      <Route exact path='/cart' element={<Cart/>}/>
+      <Route exact path='/profile' element={<Profile/>}/>
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
    </div>
   )
 }
