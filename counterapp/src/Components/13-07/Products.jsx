@@ -50,13 +50,16 @@ const Products = () => {
 
   return (
     <div style={{ display: "flex", justifyContent: "space-evenly", width: "60%", margin: "auto" , marginTop:"50px",border:"1px solid black"}}>
+      
       <div style={{ width: "22%", height: "300px", }}>
         <img style={{ width: "100%", height: "100%",marginTop:"40px", }} src={single.image} alt="Product" />
       </div>
+      
       <div style={{ width: "60%", height: "400px",  padding: "15px" }}>
         <h2>Name: {single.title}</h2>
         <h2>Price: {single.price}$</h2>
         <p style={{ fontSize: "17px" }}>Description: {single.description}</p>
+        
         <button
           style={{
             height: "45px",
@@ -73,6 +76,7 @@ const Products = () => {
         >
           Add to cart
         </button>
+        
       </div>
     </div>
   );
