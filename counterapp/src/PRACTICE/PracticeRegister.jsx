@@ -2,36 +2,33 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const PracticeRegister = () => {
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const router = useNavigate();
+  const [userData, setUserData] = useState({ name: "", email: "", password: "", role: "Buyer" });
 
-  const handleChange = (event) => {
-    setUserData({ ...userData, [event.target.name]: event.target.value });
-    console.log(event.target.value);
-  };
+    const router = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (userData.name && userData.email && userData.password) {
-      const array = JSON.parse(localStorage.getItem("Users")) || [];
-      const userDataObj = {
-        name: userData.name,
-        email: userData.email,
-        password: userData.password,
-        cart: [],
-      };
-      array.push(userDataObj);
-      localStorage.setItem("Users", JSON.stringify(array));
-      alert("Registeration Successfull..");
-      router("/practicelogin");
-    } else {
-      alert("Please fill all the details!");
+    console.log(userData, "userData")
+    const handleChange = (event) => {
+        setUserData({ ...userData, [event.target.name]: event.target.value })
     }
-  };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (userData.name && userData.email && userData.password) {
+            const usersArray = JSON.parse(localStorage.getItem("Users")) || [];
+            usersArray.push(userData);
+            localStorage.setItem("Users", JSON.stringify(usersArray))
+            setUserData({ name: "", email: "", password: "" })
+            router('/practicelogin');
+            alert("Registration Successfull.")
+        } else {
+            alert("Please fill the all fields.")
+        }
+    }
+
+    function selectRole(event) {
+        console.log(event.target.value, "- role")
+        setUserData({ ...userData, ["role"]: event.target.value })
+    }
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -45,6 +42,17 @@ const PracticeRegister = () => {
           }}
         >
           {/* <legend>Fill your Details</legend> */}
+          <label>Select Role :</label>
+          <select style={{
+              width: "380px",
+              marginTop: "10px",
+              height: "30px",
+              marginBottom: "10px",
+              textAlign: "centre",
+            }} onChange={selectRole}>
+            <option value="Buyer">Buyer</option>
+            <option value="Seller ">Seller</option>
+          </select><br/>
           <label>Name:</label>
           <br />
           <input
@@ -57,9 +65,11 @@ const PracticeRegister = () => {
             }}
             type="text"
             name="name"
+            value={userData.name}
             onChange={handleChange}
           />
           <br />
+          
           <label>Email:</label>
           <br />
           <input
@@ -72,6 +82,7 @@ const PracticeRegister = () => {
             }}
             type="email"
             name="email"
+            value={userData.email}
             onChange={handleChange}
           />
           <br />
@@ -87,6 +98,7 @@ const PracticeRegister = () => {
             }}
             type="password"
             name="password"
+            value={userData.password}
             onChange={handleChange}
           />
           <br />
@@ -105,7 +117,7 @@ const PracticeRegister = () => {
             value="Register"
           />
           <p
-            style={{ marginLeft: "80px", color: "blue" }}
+            style={{ marginLeft: "80px", color: "white" }}
             onClick={() => router("/practicelogin")}
           >
             <u>Already have an account?Login</u>

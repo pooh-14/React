@@ -1,43 +1,44 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./CONTEXT/AuthContext";
 
 const PracticeLogin = () => {
-  const [userData, setUserData] = useState({ email: "", password: "" });
-  const router = useNavigate();
-  const handleChange = (event) => {
-    setUserData({ ...userData, [event.target.name]: event.target.value });
-  };
+  const { state, Login } = useContext(AuthContext);
+    const [userData, setUserData] = useState({ email: "", password: "" })
+    const router = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (userData.email && userData.password) {
-      const users = JSON.parse(localStorage.getItem("Users"));
-
-      var flag = false;
-      for (var i = 0; i < users.length; i++) {
-        if (
-          users[i].email == userData.email &&
-          users[i].password == userData.password
-        ) {
-          flag = true;
-        }
-      }
-
-      if (flag == false) {
-        return alert("Please check credentails.");
-      }
-      alert("Login successfull.");
-      setUserData({ email: "", password: "" });
-      router("/practicehome");
-    } else {
-      alert("Please fill all the details! ");
+    const handleChange = (event) => {
+        setUserData({ ...userData, [event.target.name]: event.target.value })
     }
-  };
 
-  function newUser(){
-    router('/practiceregister')
-}
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (userData.email && userData.password) {
+            var flag = false;
+            const allUsers = JSON.parse(localStorage.getItem("Users"));
+            for (var i = 0; i < allUsers.length; i++) {
+                if (allUsers[i].email == userData.email && allUsers[i].password == userData.password) {
+                    localStorage.setItem("Currrent-user", JSON.stringify(allUsers[i]))
+                    Login(allUsers[i]);
+                    setUserData({ email: "", password: "" })
+                    alert("Login Successfull.")
+                    router('/practicehome')
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag == false) {
+                alert("Please Check your email & password.")
+            }
 
+        } else {
+            alert("Please fill the all fields.")
+        }
+    }
+
+  function newUser() {
+    router("/practiceregister");
+  }
 
   return (
     <div
@@ -49,7 +50,8 @@ const PracticeLogin = () => {
             width: "380px",
             marginTop: "50px",
             textAlign: "centre",
-            backgroundImage: "linear-gradient(to bottom right, #ff9933, #ff1a1a)",
+            backgroundImage:
+              "linear-gradient(to bottom right, #ff9933, #ff1a1a)",
           }}
         >
           {/* <legend>Login</legend> */}
@@ -65,6 +67,7 @@ const PracticeLogin = () => {
             }}
             type="email"
             name="email"
+            value={userData.email}
             onChange={handleChange}
           />
           <br />
@@ -79,6 +82,7 @@ const PracticeLogin = () => {
             }}
             type="password"
             name="password"
+            value={userData.password}
             onChange={handleChange}
           />
           <br />
@@ -89,14 +93,14 @@ const PracticeLogin = () => {
               backgroundColor: " #ccff66",
               fontWeight: "700",
               border: "2px solid  #ccff66",
-            //   color: "white",
+              //   color: "white",
               padding: "8px 35px",
               borderRadius: "20px",
             }}
             type="submit"
             value="Login"
           />
-          <p style={{ marginLeft: "125px", color: "blue" }} onClick={newUser}>
+          <p style={{ marginLeft: "125px", color: "white" }} onClick={newUser}>
             <u>New user? Register</u>
           </p>
         </fieldset>
