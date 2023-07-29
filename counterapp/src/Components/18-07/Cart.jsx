@@ -6,7 +6,7 @@ const Cart = () => {
   const [userCart, setUserCart] = useState([]);
   const router = useNavigate();
 
-  console.log(userCart, "- userCart");
+  // console.log(userCart, "- userCart");
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("Current-user"));
