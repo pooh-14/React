@@ -1,14 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./CONTEXT/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const PracticeNavbar = () => {
+
   const [userData, setUserData] = useState();
+
   const { state, Logout } = useContext(AuthContext);
+
+  const router = useNavigate();
+
   useEffect(() => {
     if (state) {
       setUserData(state.user);
     }
   }, [state]);
+
+  console.log(state);
 
   return (
     <div>
@@ -24,7 +32,7 @@ const PracticeNavbar = () => {
           alignItems: "center",
         }}
       >
-        <div>E-Com WEB</div>
+        <div onClick={()=>router('/practicehome')}>E-Com WEB</div>
         <div
           style={{
             display: "flex",
@@ -34,16 +42,14 @@ const PracticeNavbar = () => {
           }}
         >
           <>
-            <div style={{ marginLeft: "40px" }}>All Products</div>
-            {userData?.role == "Seller" && (
-              <div style={{ marginLeft: "40px" }}>Add Products</div>
-            )}
-            {userData?.role == "Seller" && (
-              <div style={{ marginLeft: "40px" }}>Add Product</div>
-            )}
+            <div style={{ marginLeft: "40px" }} onClick={()=>router('/allproducts')}>All Products</div>
 
+            {userData?.role =="Seller" && (
+              <div style={{ marginLeft: "40px" }} onClick={()=>router('/addproducts')}>Add Products</div>
+            )}
+            
             {userData?.name && (
-              <div style={{ marginLeft: "40px" }}>Profile</div>
+              <div style={{ marginLeft: "40px" }} onClick={()=>router('/myprofile')}>Profile</div>
             )}
     
             {userData?.name ? (
@@ -51,7 +57,7 @@ const PracticeNavbar = () => {
                 Logout
               </div>
             ) : (
-              <div style={{ marginLeft: "40px" }}>Login/Regsiter</div>
+              <div style={{ marginLeft: "40px" }} onClick={()=>router('/practiceregister')}>Login/Regsiter</div>
             )}
           </>
         </div>

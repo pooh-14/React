@@ -27,14 +27,14 @@ export const AuthProvider = ({ children }) => {
     }
 
     function Logout() {
-        localStorage.removeItem("Currrent-user")
+        localStorage.removeItem("Current-user")
         dispatch({
             type: "LOGOUT"
         })
     }
 
     useEffect(() => {
-        const userData = JSON.parse(localStorage.getItem("Currrent-user"))
+        const userData = JSON.parse(localStorage.getItem("Current-user"))
         // console.log(userData, "userData")
         if (userData) {
             dispatch({

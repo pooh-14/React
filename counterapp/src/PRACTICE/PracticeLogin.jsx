@@ -4,7 +4,7 @@ import { AuthContext } from "./CONTEXT/AuthContext";
 
 const PracticeLogin = () => {
   const { state, Login } = useContext(AuthContext);
-    const [userData, setUserData] = useState({ email: "", password: "" })
+    const [userData, setUserData] = useState({ email: "", password: "",role:"" })
     const router = useNavigate();
 
     const handleChange = (event) => {
@@ -18,9 +18,9 @@ const PracticeLogin = () => {
             const allUsers = JSON.parse(localStorage.getItem("Users"));
             for (var i = 0; i < allUsers.length; i++) {
                 if (allUsers[i].email == userData.email && allUsers[i].password == userData.password) {
-                    localStorage.setItem("Currrent-user", JSON.stringify(allUsers[i]))
+                    localStorage.setItem("Current-user", JSON.stringify(allUsers[i]))
                     Login(allUsers[i]);
-                    setUserData({ email: "", password: "" })
+                    setUserData({ email: "", password: "",role:"", })
                     alert("Login Successfull.")
                     router('/practicehome')
                     flag = true;

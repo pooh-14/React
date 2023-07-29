@@ -36,6 +36,9 @@ import Profile from './Components/22-07/Profile';
 import PracticeLogin from './PRACTICE/PracticeLogin';
 import PracticeRegister from './PRACTICE/PracticeRegister';
 import PracticeHome from './PRACTICE/PracticeHome';
+import AllProducts from './PRACTICE/AllProducts';
+import AddProducts from './PRACTICE/AddProducts';
+import MyProfile from './PRACTICE/MyProfile';
 
 
 function App() {
@@ -80,6 +83,9 @@ function App() {
       <Route exact path='/practicehome' element={<PracticeHome/>}/>
       <Route exact path='/practicelogin' element={<PracticeLogin/>}/>
       <Route exact path='/practiceregister' element={<PracticeRegister/>}/>
+      <Route exact path='/allproducts' element={<AllProducts/>}/>
+      <Route exact path='/addproducts' element={<AddProducts/>}/>
+      <Route exact path='/MyProfile' element={<MyProfile/>}/>
 
       </Routes>
       {/* <Footer/> */}

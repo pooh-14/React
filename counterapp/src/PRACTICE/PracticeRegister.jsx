@@ -2,33 +2,46 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const PracticeRegister = () => {
-  const [userData, setUserData] = useState({ name: "", email: "", password: "", role: "Buyer" });
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "Buyer",
+  });
 
-    const router = useNavigate();
+  const router = useNavigate();
 
-    console.log(userData, "userData")
-    const handleChange = (event) => {
-        setUserData({ ...userData, [event.target.name]: event.target.value })
+  console.log(userData, "userData");
+  const handleChange = (event) => {
+    setUserData({ ...userData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (userData.name && userData.email && userData.password) {
+      const usersArray = JSON.parse(localStorage.getItem("Users")) || [];
+      const userDataObj = {
+        name: userData.name,
+        email: userData.email,
+        password: userData.password,
+        role: userData.role,
+        cart: [],
+      };
+      usersArray.push(userDataObj);
+      localStorage.setItem("Users", JSON.stringify(usersArray));
+      setUserData({ name: "", email: "", password: "", role: "Buyer"});
+      router("/practicelogin");
+      alert("Registration Successfull.");
+    } else {
+      alert("Please fill the all fields.");
     }
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (userData.name && userData.email && userData.password) {
-            const usersArray = JSON.parse(localStorage.getItem("Users")) || [];
-            usersArray.push(userData);
-            localStorage.setItem("Users", JSON.stringify(usersArray))
-            setUserData({ name: "", email: "", password: "" })
-            router('/practicelogin');
-            alert("Registration Successfull.")
-        } else {
-            alert("Please fill the all fields.")
-        }
-    }
-
-    function selectRole(event) {
-        console.log(event.target.value, "- role")
-        setUserData({ ...userData, ["role"]: event.target.value })
-    }
+  function selectRole(event) {
+    console.log(event.target.value, "- role");
+    setUserData({ ...userData, ["role"]: event.target.value });
+  }
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -38,21 +51,28 @@ const PracticeRegister = () => {
             width: "380px",
             marginTop: "50px",
             textAlign: "centre",
-            backgroundImage: "linear-gradient(to bottom right, #ff9933, #ff1a1a)",
+            backgroundImage:
+              "linear-gradient(to bottom right, #ff9933, #ff1a1a)",
           }}
         >
           {/* <legend>Fill your Details</legend> */}
           <label>Select Role :</label>
-          <select style={{
+
+          <select
+            style={{
               width: "380px",
               marginTop: "10px",
               height: "30px",
               marginBottom: "10px",
               textAlign: "centre",
-            }} onChange={selectRole}>
+            }}
+            onChange={selectRole}
+          >
             <option value="Buyer">Buyer</option>
-            <option value="Seller ">Seller</option>
-          </select><br/>
+            <option value="Seller">Seller</option>
+          </select>
+          <br />
+
           <label>Name:</label>
           <br />
           <input
@@ -69,7 +89,7 @@ const PracticeRegister = () => {
             onChange={handleChange}
           />
           <br />
-          
+
           <label>Email:</label>
           <br />
           <input
@@ -109,7 +129,7 @@ const PracticeRegister = () => {
               backgroundColor: " #ccff66",
               fontWeight: "700",
               border: "2px solid  #ccff66",
-            //   color: "white",
+              //   color: "white",
               padding: "8px 35px",
               borderRadius: "20px",
             }}
