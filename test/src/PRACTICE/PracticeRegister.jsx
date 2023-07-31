@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const PracticeRegister = () => {
@@ -32,9 +33,9 @@ const PracticeRegister = () => {
       localStorage.setItem("Users", JSON.stringify(usersArray));
       setUserData({ name: "", email: "", password: "", role: "Buyer"});
       router("/practicelogin");
-      alert("Registration Successfull.");
+      toast.success("Registration Successfull.");
     } else {
-      alert("Please fill the all fields.");
+      toast.error("Please fill the all fields.");
     }
   };
 

@@ -11,12 +11,14 @@ const PracticeNavbar = () => {
   const router = useNavigate();
 
   useEffect(() => {
-    if (state) {
-      setUserData(state.user);
+    const isUserPresent = JSON.parse(localStorage.getItem("Current-user"));
+    if (state?.user){
+        setUserData(state?.user)
+    }else{
+        setUserData({})
     }
-  }, [state]);
+},[state])
 
-  console.log(state);
 
   return (
     <div>
@@ -32,7 +34,7 @@ const PracticeNavbar = () => {
           alignItems: "center",
         }}
       >
-        <div onClick={()=>router('/practicehome')}>E-Com WEB</div>
+        <div onClick={()=>router('/')}>E-Com WEB</div>
         <div
           style={{
             display: "flex",
@@ -49,7 +51,11 @@ const PracticeNavbar = () => {
             )}
             
             {userData?.name && (
-              <div style={{ marginLeft: "40px" }} onClick={()=>router('/myprofile')}>Profile</div>
+              <div style={{ marginLeft: "40px" }} onClick={()=>router('/myprofile')}>Profile - {userData?.name}</div>
+            )}
+
+            {userData?.role =="Buyer" && (
+              <div style={{ marginLeft: "40px" }} onClick={()=>router('/cart')}>Cart</div>
             )}
     
             {userData?.name ? (

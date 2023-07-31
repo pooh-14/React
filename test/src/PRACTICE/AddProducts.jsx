@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import PracticeNavbar from './PracticeNavbar';
+import { toast } from 'react-hot-toast';
 
 const AddProducts = () => {
 
@@ -24,9 +25,9 @@ const AddProducts = () => {
             localStorage.setItem("Products", JSON.stringify(productsArray))
             setProductData({ name: "", price: "", image: "", category: "Other" })
             router('/allproducts');
-            alert("Product added Successfully!")
+            toast.success("Product added Successfully!")
         } else {
-            alert("Please fill all the data!")
+            toast.error("Please fill all the data!")
         }
     }
 
@@ -38,18 +39,17 @@ const AddProducts = () => {
         const user = JSON.parse(localStorage.getItem("Current-user"))
         if (user) {
             if (user?.role == "Buyer") {
-                alert("Access granted only to Seller.")
-                router('/practicehome')
+                toast.error("Access granted only to Seller.")
+                router('/')
             }
         } else {
-            alert("You are not a Logged in user.")
+            toast.error("You are not a Logged in user.")
             router('/practicelogin')
         }
     }, [])
     
   return (
     <div>
-        <PracticeNavbar/>
     <div style={{ display: "flex", justifyContent: "center" }}>
       <form onSubmit={handleSubmit}>
         <fieldset

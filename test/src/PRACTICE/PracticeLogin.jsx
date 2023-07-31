@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./CONTEXT/AuthContext";
+import { toast } from "react-hot-toast";
 
 const PracticeLogin = () => {
   const { state, Login } = useContext(AuthContext);
@@ -21,18 +22,18 @@ const PracticeLogin = () => {
                     localStorage.setItem("Current-user", JSON.stringify(allUsers[i]))
                     Login(allUsers[i]);
                     setUserData({ email: "", password: "",role:"", })
-                    alert("Login Successfull.")
-                    router('/practicehome')
+                    toast.success("Login Successfull!")
+                    router('/')
                     flag = true;
                     break;
                 }
             }
             if (flag == false) {
-                alert("Please Check your email & password.")
+                toast.error("Please Check your email & password.")
             }
 
         } else {
-            alert("Please fill the all fields.")
+            toast.error("Please fill the all fields.")
         }
     }
 
