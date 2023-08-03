@@ -4,12 +4,18 @@ import { AuthContext } from "./CONTEXT/AuthContext";
 import { toast } from "react-hot-toast";
 
 const Profile = () => {
-    const { Login } = useContext(AuthContext)
+    const { state, Login } = useContext(AuthContext)
 
     const [userData, setUserData] = useState({});
     const router = useNavigate()
 
     console.log(userData, "userData")
+
+    useEffect(() => {
+      if (state) {
+        setUserData(state.user);
+      }
+    }, [state]);
 
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem("Current-user"));

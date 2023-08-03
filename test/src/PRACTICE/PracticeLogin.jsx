@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "./CONTEXT/AuthContext";
 import { toast } from "react-hot-toast";
+import { AuthContext } from "./CONTEXT/AuthContext";
 
 const PracticeLogin = () => {
   const { state, Login } = useContext(AuthContext);
