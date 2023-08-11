@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { AuthContext } from './CONTEXT/AuthContext'
-import PracticeNavbar from './PracticeNavbar';
 
 const PracticeHome = () => {
 

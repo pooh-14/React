@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "./CONTEXT/AuthContext";
 
 const PracticeLogin = () => {
-  const { state, Login } = useContext(AuthContext);
+  const {  Login } = useContext(AuthContext);
     const [userData, setUserData] = useState({ email: "", password: "",role:"" })
     const router = useNavigate();
 

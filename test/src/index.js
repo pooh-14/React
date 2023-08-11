@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-  './PRACTICE/CONTEXT/AuthContext';
 import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from './PRACTICE/CONTEXT/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

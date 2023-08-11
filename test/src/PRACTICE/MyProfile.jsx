@@ -20,7 +20,7 @@ const Profile = () => {
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem("Current-user"));
         if (!currentUser) {
-            router("/login")
+            router("/practicelogin")
         }
         const allUsers = JSON.parse(localStorage.getItem("Users"));
         if (currentUser && allUsers) {
